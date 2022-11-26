@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,15 @@ public class CatalogueController {
 	public Catalogue addCat(@RequestBody Catalogue catalogue) {
 
 		Catalogue addCatalogue = catalogueServices.addCatalogue(catalogue);
+		return addCatalogue;
+	}
+
+	@GetMapping("/catalogue")
+	public Catalogue retCat() {
+
+		Catalogue addCatalogue = new Catalogue();
+		addCatalogue.setCatalogueId(123);
+		addCatalogue.setName("Samsung");
 		return addCatalogue;
 	}
 
